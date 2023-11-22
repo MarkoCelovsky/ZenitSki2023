@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/navigation.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <section class="head">
+      <div class="head-ctr">
+        <div class="head-title">
+          <h2 class="heading" style="font-size: 44px">ZenSki</h2>
+          <span>
+            Doprajte si zimnú dovolenku na nezabudnutie. Lyžiarske stredisko
+            ZenSki je ideálnym miestom pre lyžiarov, snowboardistov, rodiny s
+            deťmi a milovníkov prírody.
+          </span>
+        </div>
+        <div>
+          <form action="/post-newsletter" method="POST" class="head-input">
+            <h4 class="heading">Chcem dostávať novinky</h4>
+            <input
+              type="text"
+              class="form-field"
+              placeholder="Zadajte svoje meno"
+              name="name"
+              id="name"
+              value=""
+            />
+
+            <input
+              type="email"
+              class="form-field"
+              name="email"
+              id="email"
+              placeholder="Zadajte emailovu adresu"
+              value=""
+            />
+            <button class="button" style="margin-top: 10px" type="submit">
+              Odoslať
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <article class="options-ctr">
+      <div class="options">
+        <div class="option">
+          <h6 class="heading optionH">01.</h6>
+          <p class="optionS">
+            Zjazdovky <br />
+            pre všetkých
+          </p>
+          <span class="optionT">
+            Ponúkame širokú škálu zjazdoviek pre všetky úrovne zručností,
+            vrátane náročných zjazdoviek pre pokročilých, ako aj miernych
+            zjazdoviek pre začiatočníkov a rodiny s deťmi.
+          </span>
+        </div>
+        <div class="option">
+          <h6 class="heading optionH">02.</h6>
+          <p class="optionS">Prekrásna <br />príroda</p>
+          <span class="optionT">
+            Stredisko sa nachádza v krásnej horskej oblasti a ponúka nádherné
+            výhľady na okolitú prírodu. Okrem lyžovania a snowboardingu tu
+            môžete využiť aj množstvo ďalších aktivít.
+          </span>
+        </div>
+        <div class="option">
+          <h6 class="heading optionH">03.</h6>
+          <p class="optionS">
+            Lyžiarska <br />
+            škola
+          </p>
+          <span class="optionT">
+            Lyžiarska škola je skvelou možnosťou pre začiatočníkov, ktorí sa
+            chcú naučiť lyžovať alebo snowboardovať. Lyžiarski inštruktori
+            poskytujú individuálne alebo skupinové lekcie.
+          </span>
+        </div>
+      </div>
+    </article>
+
+    <section class="ponuka-ctr">
+      <div class="ponuka ponuka1">
+        <div class="pnk">
+          <h4 style="font-size: 32px; margin: 0">Špeciálna ponuka</h4>
+          <p style="text-transform: uppercase">ušetrite 25%</p>
+        </div>
+        <a href="/form"><button class="button">Rezervovať skipas</button></a>
+      </div>
+      <div class="ponuka ponuka2">
+        <div class="pnk">
+          <h4 style="font-size: 32px; margin: 0">Festival</h4>
+          <p style="text-transform: uppercase">už za 3 dni</p>
+        </div>
+        <a href="/form"><button class="button">Rezervovať skipas</button></a>
+      </div>
+      <div class="ponuka ponuka3">
+        <div class="pnk">
+          <h4 style="font-size: 32px; margin: 0">Rodinná dovolenka</h4>
+          <p style="text-transform: uppercase">špeciálne ponuky</p>
+        </div>
+        <a href="/form"><button class="button">Rezervovať skipas</button></a>
+      </div>
+    </section>
+
+    <article class="location-ctr">
+      <% locations.forEach(location => { %>
+      <a href="/form/<%= location.id %>" class="location">
+        <div
+          class="location"
+          style="background-image: url('<%= location.image_description%>')"
+        >
+          <h4 style="font-size: 28px; font-weight: 500">
+            <%= location.location_name %>
+          </h4>
+        </div>
+      </a>
+      <% }) %>
+    </article>
+
+    <section class="ski-ctr">
+      <div class="ski">
+        <h4 style="font-size: 30px; text-align: center; color: #617391">
+          Apré ski <br />
+          stvorené priamo pre vás
+        </h4>
+        <div class="vyhody">
+          <div class="vyhoda">
+            <img src="/images/icon01.svg" alt="Icon Description" class="icon" />
+            <h5>Reštaurácie</h5>
+            <p>
+              U nás nájdete širokú škálu reštaurácií a barov, ktoré ponúkajú
+              jedlá a nápoje pre všetky chute. Dostupné v blízkosti zjazdoviek a
+              vlekov.
+            </p>
+          </div>
+
+          <div class="vyhoda">
+            <img src="/images/icon02.svg" alt="Icon Description" class="icon" />
+            <h5>Nočný život</h5>
+            <p>
+              Nočné lyžovanie, posedenie v bare, diskotéky alebo koncerty.
+              Zúčastnite sa festivalu zábavy, ktorý začíná zo západom slnka.
+            </p>
+          </div>
+          <div class="vyhoda">
+            <img src="/images/icon03.svg" alt="Icon Description" class="icon" />
+            <h5>Wellness</h5>
+            <p>
+              Náše wellness centrum ponúka širokú škálu služieb, ktoré vám
+              pomôžu uvoľniť sa a obnoviť si energiu po náročnom dni na svahu.
+            </p>
+          </div>
+        </div>
+        <div class="vyhody">
+          <div class="vyhoda">
+            <img src="/images/icon04.svg" alt="Icon Description" class="icon" />
+            <h5>Obchody</h5>
+            <p>
+              Ponúkame širokú škálu obchodov a služieb, ako sú lyžiarske a
+              snowboardové predajne, požičovne, športové potreby a ďalšie.
+            </p>
+          </div>
+          <div class="vyhoda">
+            <img src="/images/icon05.svg" alt="Icon Description" class="icon" />
+            <h5>Ubytovanie</h5>
+            <p>
+              Pripravili sme pre vás sieť hotelov, apartmánov a dokonca aj
+              chatiek. Na svoje si prídu aj tí najnáročnejší.
+            </p>
+          </div>
+          <div class="vyhoda">
+            <img src="/images/icon06.svg" alt="Icon Description" class="icon" />
+            <h5>Kurzy</h5>
+            <p>
+              Kurzy sú určené pre malých aj veľkých, pre začiatočníkov aj
+              pokročilých. Naučíme vás lyžovať aj padať
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <article class="info">
+      <div class="info-card info-img1"></div>
+      <div class="info-card">
+        <div class="info-ctr">
+          <div>
+            <h6 class="info-head">Základné informácie</h6>
+            <h6 class="info-text">+(421) 999 000 001</h6>
+          </div>
+          <div>
+            <h6 class="info-head">Rezervácie</h6>
+            <h6 class="info-text">+(421) 999 000 002</h6>
+          </div>
+          <div>
+            <h6 class="info-head">Centrum pomoci</h6>
+            <h6 class="info-text">+(421) 999 000 004</h6>
+          </div>
+        </div>
+      </div>
+      <div class="info-card info-img2"></div>
+    </article>
+
+    <footer class="footer">
+      <h6>
+        ZENIT © Všetky práva vyhradené 2023, vytvorené Marko Čelovský, Stredná
+        priemyselná škola elektrotechnická Prešov
+      </h6>
+    </footer>
+  </body>
+</html>
